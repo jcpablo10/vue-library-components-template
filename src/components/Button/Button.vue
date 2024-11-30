@@ -1,7 +1,7 @@
 <template>
   <button
     @click="onClick"
-    class="border rounded-lg p-2 custom-button" 
+    class="border rounded-lg p-2 custom-button px-8" 
     :class="classes"
   >
     <slot>
@@ -11,16 +11,16 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
-  import {Button} from './Button.types';
+  import { computed } from 'vue'
+  import {Button} from './Button.types'
 
   const props = withDefaults(
     defineProps<Button>(),{ 
       primary: true
-    });
+    })
 
   const emit = defineEmits<{
-    (e: 'click'): void;
+    (e: 'click'): void
   }>()
 
   const onClick = () => {
