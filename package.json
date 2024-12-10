@@ -1,14 +1,27 @@
 {
-  "name": "vue-components-library",
-  "private": true,
-  "version": "0.0.0",
+  "name": "vue-components-library-lite",
+  "private": false,
+  "version": "0.0.3",
   "type": "module",
+  "main": "./dist/vue-components-library.umd.js",
+  "module": "./dist/vue-components-library.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-components-library.es.js",
+      "require": "./dist/vue-components-library.umd.js"
+    },
+    "./dist/vue-components-library-lite.css": "./dist/vue-components-library-lite.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vue-tsc -p tsconfig.json && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "vue": "^3.5.13"
