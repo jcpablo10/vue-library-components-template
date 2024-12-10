@@ -3,7 +3,11 @@
     <div>
       <slot name="prependIcon">{{ prependIcon }}</slot>
     </div>
-    <input :type="type" :value="value" @input="handleValueChange"  class="border p-1 rounded-lg" />
+    <input 
+      v-bind="{ type, value: modelValue, name, placeholder }"
+      @input="handleValueChange"
+      class="border p-1 rounded-lg" 
+    />
     <div>
       <slot name="appendIcon">{{ appendIcon }}</slot>
     </div>
@@ -11,16 +15,22 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
+import { defineProps, defineEmits, withDefaults } from 'vue'
 
-defineProps<{
-  prependIcon: string
-  appendIcon: string
-  value: string
-  name: string
-  type: string
-  placeholder: string
-}>()
+const props = withDefaults(defineProps<{
+  prependIcon?: string
+  appendIcon?: string
+  modelValue: string
+  name?: string
+  type?: string
+  placeholder?: string
+}>(), {
+  prependIcon: '',
+  appendIcon: '',
+  name: '',
+  type: 'text',
+  placeholder: ''
+})
 
 const emit = defineEmits(['update:modelValue'])
 
