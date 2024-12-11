@@ -1,5 +1,5 @@
-const Button = () => { import('./components/Button/Button.vue')}
-const SInput = () => { import('./components/SInput/SInput.vue')}
+const Button = () => import('./components/Button/Button.vue')
+const SInput = () => import('./components/SInput/SInput.vue')
 import './style.css';
 
 export default {
