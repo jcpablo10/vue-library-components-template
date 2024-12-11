@@ -4,7 +4,8 @@
       <slot name="prependIcon">{{ prependIcon }}</slot>
     </div>
     <input 
-      v-bind="{ type, value: modelValue, name, placeholder }"
+      v-bind="{ type, name, placeholder }"
+      :value="modelValue"
       @input="handleValueChange"
       class="border p-1 rounded-lg" 
     />
