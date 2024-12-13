@@ -1,7 +1,7 @@
 {
   "name": "vue-components-library-lite",
   "private": false,
-  "version": "0.0.7",
+  "version": "0.0.9",
   "type": "module",
   "main": "./dist/vue-components-library.umd.js",
   "module": "./dist/vue-components-library.es.js",
