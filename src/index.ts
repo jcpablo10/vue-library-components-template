@@ -1,9 +1,11 @@
-const Button = () => import('./components/Button/Button.vue')
-const SInput = () => import('./components/SInput/SInput.vue')
+import { defineAsyncComponent } from 'vue';
 import './style.css';
 
+const Button = defineAsyncComponent(() => import('./components/Button/Button.vue'));
+const SInput = defineAsyncComponent(() => import('./components/SInput/SInput.vue'));
+
 export default {
-  install: (app: any, options: any) => {
+  install: (app: any) => {
     app.component('Button', Button);
     app.component('SInput', SInput);
   }
